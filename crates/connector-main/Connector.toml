@@ -1,10 +1,10 @@
 [package]
-name = "connector-main"
+name = "connector-hello-source"
 group = "hello-world"
 version = "0.1.0"
 apiVersion = "0.1.0"
-fluvio = "0.10.0"
-description = ""
+fluvio = "0.21"
+description = "Sample Connector Source"
 license = "Apache-2.0"
 visibility = "private"
 
