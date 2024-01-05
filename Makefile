@@ -1,4 +1,9 @@
 
+default: test
+
+test-lib:
+	cargo test -p ext-lib
+
 build:
 	cd crates/connector-main && cdk build
 

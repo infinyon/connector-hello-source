@@ -6,9 +6,15 @@
 A Fluvio Connector is a binary built with a connector interface to enable a set
 of consistent features.  The features allow for standardized startup and
 configuration parameters, as well as the ability to plug in smartmodule
-transforms. This interface also allows connector components to be offered in the
-Infinyon hub as a component for execution in local or customized container
-environments, or, with approval, on Infinyon's cloud platform.
+transforms. This interface also allows connector components to be optionally
+published in the Infinyon hub as a component for execution in local or
+other user container environments, or with approval, within Infinyon's cloud
+platform.
+
+A "source" and "sink" refers to how a connector interacts with a fluvio cluster.
+A "source" connects to an external data source and publishes records into a
+flvuio topic. A "sink" recives new events from a fluvio topic, and sends the
+data to an external data store.
 
 ## Repo Organization
 
@@ -23,15 +29,19 @@ interface around the library.
 
 ## Notes
 
-This example shows a development path to take to integrate general functionality
-with a fluvio connector with fairly fine control over the parameters offered.
+This example shows a development integration of a generic crate to wrap a
+fluvio connector interface. This integration gives close control over the
+parameters offered as well as how the connector executes.
 
-For simpler http apis, you can altenatively use our generic http-source
-connector by filling in a connector configuration file without needing to write
-any code. See our docs at https://www.fluvio.io/connectors/inbound/http/ or
+For simpler uses, you can used existing parameterized connectors from the hub.
+For example with many http apis, you can altenatively use the Infinyon generic
+http-source connector by filling in a connector configuration file without
+needing to develop a custom connector. See our docs at
+https://www.fluvio.io/connectors/inbound/http/ or
 https://www.fluvio.io/connectors/outbound/http/.
 
-Or for services which may provide webhook integration, you can also use webook
+For services which may provide webhook integration, you can also use webook
 APIs with the Infinyon cloud webhook gateway at
 https://www.infinyon.com/docs/cli/webhook/
 
+Connectors can be browsed at TBD.

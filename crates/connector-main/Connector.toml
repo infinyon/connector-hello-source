@@ -14,7 +14,7 @@ source = true
 [deployment]
 binary = "connector-main"
 
-[custom.properties.foo]
-title = "Foo"
-description = "Foo"
-type = "string"
+[custom.properties.interval_sec]
+title = "interval_sec"
+description = "Update interval in seconds"
+type = "integer"
