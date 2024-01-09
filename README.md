@@ -82,6 +82,10 @@ cdk deploy log --config config.yaml
 For connector deployments in the Infinyon cloud see:
 https://fluvio.io/connectors/cloud-connectors/
 
+## Using Secrets
+
+
+
 ## Notes
 
 This example shows a development integration of a generic crate to wrap a
@@ -102,4 +106,5 @@ For services which may provide webhook integration, you can also use webook
 APIs with the Infinyon cloud webhook gateway at
 https://www.infinyon.com/docs/cli/webhook/
 
-Connectors can be browsed at TBD.
+See a lit of available connectors at https://fluvio.io/connectors/cdk/github-examples/
+
