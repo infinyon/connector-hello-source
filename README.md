@@ -19,13 +19,13 @@ data to an external data store.
 ## Repo Organization
 
 This repository is organized with a library crate "ext-lib" and a connector
-binary crate "connector-main".
+binary crate "connector-main":
 
-The ext-lib is a simple standalone example integration with the [USGS Earthquake
+* [ext-lib](crates/ext-lib) is a simple standalone example integration with the [USGS Earthquake
 feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).
 
-The connector-main takes that simple crate and wraps a Fluvio connector
-interface around the library.
+* [connector-main](crates/connector-main) is the glue logic that joins the simple crate with the Fluvio connector
+interface.
 
 ## Build and Test
 
