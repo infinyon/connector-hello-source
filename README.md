@@ -21,15 +21,15 @@ data to an external data store.
 This repository is organized with a library crate "ext-lib" and a connector
 binary crate "connector-main":
 
-* [ext-lib](crates/ext-lib) is a simple standalone example integration with the [USGS Earthquake
-feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).
+* [external-lib](crates/external-lib) is a simple standalone example integration with the [USGS Earthquake
+feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php). A separate crate is not required by the Fluvio connector interface, but the arrangement is often convenient for testing and development.
 
 * [connector-main](crates/connector-main) is the glue logic that joins the simple crate with the Fluvio connector
 interface.
 
 ## Build and Test
 
-The ext-lib can be built and tested using standard cargo commands.
+The external-lib can be built and tested using standard cargo commands.
 
 At the top cargo workspace level:
 ```
@@ -38,7 +38,7 @@ cargo test -p ext-lib   # this will build and test the crate
 ```
 Or in the crate directory:
 ```
-cd crates/ext-lib
+cd crates/external-lib
 cargo build
 cargo test
 ```
@@ -106,7 +106,7 @@ For simpler uses, you can used existing parameterized connectors from the hub.
 For example with many http apis, you can altenatively use the Infinyon generic
 http-source connector by filling in a connector configuration file without
 needing to develop a custom connector. In the case of the USGS feed, an alternate
-way to process the data would be to use the generic http source connector with 
+way to process the data would be to use the generic http source connector with
 smartmodules to process the geojson data into a record stream.
 
 See our docs at:
@@ -117,7 +117,7 @@ For services which may provide webhook integration, you can also use webook
 APIs with the Infinyon cloud webhook gateway at:
 * https://www.infinyon.com/docs/cli/webhook/
 
-See a list of available connectors at 
+See a list of available connectors at
  * https://fluvio.io/connectors/cdk/github-examples/
 
 
