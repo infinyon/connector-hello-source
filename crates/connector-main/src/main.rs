@@ -1,5 +1,3 @@
-
-
 use anyhow::anyhow;
 use fluvio::{RecordKey, TopicProducer};
 use fluvio_connector_common::{
