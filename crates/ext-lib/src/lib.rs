@@ -26,7 +26,7 @@ impl UsgsFeatureCollectionExample {
     }
 
     pub fn parse(geojson_str: &str) -> Result<Self> {
-        let data: UsgsFeatureCollectionExample = serde_json::from_str(&geojson_str)
+        let data: UsgsFeatureCollectionExample = serde_json::from_str(geojson_str)
             .map_err(|e| anyhow!("Couldn't parse geojson, error {e}"))?;
         Ok(data)
     }
