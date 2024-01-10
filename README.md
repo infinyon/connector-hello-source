@@ -106,15 +106,21 @@ For simpler uses, you can used existing parameterized connectors from the hub.
 For example with many http apis, you can altenatively use the Infinyon generic
 http-source connector by filling in a connector configuration file without
 needing to develop a custom connector. In the case of the USGS feed, an alternate
-way to process the data would be to use the generic http source connector with smartmodules to process the geojson data into a record stream.
+way to process the data would be to use the generic http source connector with 
+smartmodules to process the geojson data into a record stream.
 
-See our docs at
-https://www.fluvio.io/connectors/inbound/http/ or
-https://www.fluvio.io/connectors/outbound/http/.
+See our docs at:
+* https://www.fluvio.io/connectors/inbound/http/ or
+* https://www.fluvio.io/connectors/outbound/http/.
 
 For services which may provide webhook integration, you can also use webook
-APIs with the Infinyon cloud webhook gateway at
-https://www.infinyon.com/docs/cli/webhook/
+APIs with the Infinyon cloud webhook gateway at:
+* https://www.infinyon.com/docs/cli/webhook/
 
-See a lit of available connectors at https://fluvio.io/connectors/cdk/github-examples/
+See a list of available connectors at 
+ * https://fluvio.io/connectors/cdk/github-examples/
 
+
+## Collaborate
+
+* Join the [Fluvio Community on Discord](https://discordapp.com/invite/bBG2dTz) to ask questions, promote your connector, or simply say hello.
