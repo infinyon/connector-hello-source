@@ -33,8 +33,8 @@ The external-lib can be built and tested using standard cargo commands.
 
 At the top cargo workspace level:
 ```
-cargo build -p ext-lib  # to just build the ext-lib crate
-cargo test -p ext-lib   # this will build and test the crate
+cargo build -p external-lib  # to just build the external-lib crate
+cargo test -p external-lib   # this will build and test the crate
 ```
 Or in the crate directory:
 ```
