@@ -13,7 +13,7 @@ platform.
 
 A "source" and "sink" refers to how a connector interacts with a fluvio cluster.
 A "source" connects to an external data source and publishes records into a
-flvuio topic. A "sink" recives new events from a fluvio topic, and sends the
+fluvio topic. A "sink" recives new events from a fluvio topic, and sends the
 data to an external data store.
 
 ## Repo Organization
