@@ -8,7 +8,7 @@ use fluvio_connector_common::{
 use std::thread::sleep;
 use tracing::info;
 
-use ext_lib::UsgsFeatureCollectionExample;
+use external_lib::UsgsFeatureCollectionExample;
 
 #[connector(config)]
 #[derive(Debug)]

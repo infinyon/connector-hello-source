@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.77"
-ext-lib = { path = "../ext-lib"}
+external-lib = { path = "../external-lib"}
 
 async-std = { workspace = true }
 fluvio = { git = "https://github.com/infinyon/fluvio", rev = "v0.11.2" }

@@ -2,7 +2,7 @@
 
 [workspace]
 members = [
-    "crates/ext-lib",
+    "crates/external-lib",
     "crates/connector-main"
 ]
 resolver = "2"
