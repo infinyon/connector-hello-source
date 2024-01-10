@@ -82,8 +82,18 @@ cdk deploy log --config config.yaml
 For connector deployments in the Infinyon cloud see:
 https://fluvio.io/connectors/cloud-connectors/
 
+
 ## Using Secrets
 
+This sample connector is configured with an optional example secret parameter.
+to test or run with the secret, an alternate configuration is used, and the
+secret needs to be provisioned to `cdk test` or `cdk deploy` with the `-s` parameter.
+
+```
+cd crates/connector-main
+cdk test --config config-with-secret.yaml -s secret.txt
+cdk deploy start --config config-with-secret.yaml -s secret.txt
+```
 
 
 ## Notes
