@@ -81,8 +81,8 @@ be examined conveniently with `cdk deploy log`.
 ```
 cd crates/connector-main
 cdk deploy start --config config.yaml
-cdk deploy shutdown --config config.yaml
 cdk deploy log --config config.yaml
+cdk deploy shutdown --config config.yaml
 ```
 
 For connector deployments in the Infinyon cloud see:
