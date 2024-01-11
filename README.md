@@ -68,6 +68,12 @@ cd crates/connector-main
 cdk test --config config.yaml
 ```
 
+The connector produces records into the `output-topic`. To check the result:
+
+```
+fluvio consume output-topic -B
+```
+
 To deploy and shutdown a connector with cdk. A connector deployed this way
 will be running in a local process with log outputs going to a file, but able to
 be examined conveniently with `cdk deploy log`.
