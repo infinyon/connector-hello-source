@@ -71,7 +71,7 @@ cdk test --config config.yaml
 The connector produces records into the `output-topic`. To check the result:
 
 ```
-fluvio consume output-topic -B
+fluvio consume output-topic -B -O json
 ```
 
 To deploy and shutdown a connector with cdk. A connector deployed this way
