@@ -10,6 +10,7 @@ use tracing::info;
 
 use external_lib::UsgsFeatureCollectionExample;
 
+/// Configuration for the custom source connector.
 #[connector(config)]
 #[derive(Debug)]
 pub(crate) struct CustomConfig {
@@ -20,9 +21,15 @@ pub(crate) struct CustomConfig {
     pub secret_example_param: Option<SecretString>,
 }
 
+/// The custom source connector polls an external API and produces records.
+///
+/// It connects to a Fluvio stream and periodically polls the external API.
+/// The received records are produced into the stream.
 #[connector(source)]
 async fn start(config: CustomConfig, producer: TopicProducer) -> Result<()> {
+    // Print the loaded configuration
     println!("Starting source connector with {config:?}");
+    // Validate interval is >= 60 seconds
     if config.interval_sec < 60 {
         return Err(anyhow!("interval_sec: minimum is 60 seconds"));
     }
@@ -35,12 +42,16 @@ async fn start(config: CustomConfig, producer: TopicProducer) -> Result<()> {
         // parameter not supplied
         String::new()
     };
+    // Print secret length
     let slen = secret_param.chars().count();
     println!("secret_example_param is {slen} chars long");
 
+    // Calculate polling interval
     let delay = std::time::Duration::from_secs(config.interval_sec.into());
+    // Poll loop
     let mut first_update = true;
     loop {
+        // Handle first vs subsequent updates
         if first_update {
             first_update = false;
         } else {
@@ -49,7 +60,7 @@ async fn start(config: CustomConfig, producer: TopicProducer) -> Result<()> {
             sleep(delay);
         }
 
-        // Read data from the USGS endpoint
+        // Read data from external API(USGS) endpoint
         let Ok(data) = UsgsFeatureCollectionExample::update().await else {
             info!("Failed update");
             continue;
@@ -62,6 +73,7 @@ async fn start(config: CustomConfig, producer: TopicProducer) -> Result<()> {
             let rec: String = rec.to_string();
             producer.send(RecordKey::NULL, rec).await?;
         }
+        // Flush records
         producer.flush().await?;
     }
 }
