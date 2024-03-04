@@ -6,6 +6,7 @@ use geojson::JsonValue;
 /// updated once per minute
 const ENDPOINT: &str = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson";
 
+/// This is the data structure that we expect from the USGS endpoint.
 #[derive(Debug, Deserialize, Serialize)]
 pub struct UsgsFeatureCollectionExample {
     #[serde(rename = "type")]
@@ -15,6 +16,7 @@ pub struct UsgsFeatureCollectionExample {
 }
 
 impl UsgsFeatureCollectionExample {
+    /// update data from endpoint
     pub async fn update() -> Result<Self> {
         let body = reqwest::get(ENDPOINT)
             .await
@@ -24,13 +26,13 @@ impl UsgsFeatureCollectionExample {
             .map_err(|e| anyhow!("Couldn't read body, error {e}"))?;
         UsgsFeatureCollectionExample::parse(&body)
     }
-
+    /// parse geojson string into data structure
     pub fn parse(geojson_str: &str) -> Result<Self> {
         let data: UsgsFeatureCollectionExample = serde_json::from_str(geojson_str)
             .map_err(|e| anyhow!("Couldn't parse geojson, error {e}"))?;
         Ok(data)
     }
-
+    /// grab metadata value
     pub fn metadata(&self, key: &str) -> Option<JsonValue> {
         self.metadata.get(key).cloned()
     }
@@ -75,7 +77,7 @@ mod tests {
     use super::*;
 
     const SAMPLE_JSON: &str = "tests/all_hour.geojson";
-
+    /// test parsing of sample data
     #[test]
     fn parse() -> anyhow::Result<()> {
         let geojson = std::fs::read_to_string(SAMPLE_JSON)?;
@@ -90,7 +92,7 @@ mod tests {
         };
         Ok(())
     }
-
+    /// test updating data from endpoint
     #[ignore]
     #[tokio::test]
     async fn run_update() -> anyhow::Result<()> {
@@ -98,7 +100,6 @@ mod tests {
         println!("{data:?}");
         Ok(())
     }
-
 
     #[ignore]
     #[tokio::test]
