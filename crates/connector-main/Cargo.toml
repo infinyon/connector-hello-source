@@ -10,8 +10,8 @@ anyhow = "1.0.77"
 external-lib = { path = "../external-lib"}
 
 async-std = { workspace = true }
-fluvio = { git = "https://github.com/infinyon/fluvio", rev = "v0.11.2" }
-fluvio-connector-common = { git = "https://github.com/infinyon/fluvio", rev = "v0.11.2", features = ["derive"]}
+fluvio = { git = "https://github.com/infinyon/fluvio", rev = "v0.11.5" }
+fluvio-connector-common = { git = "https://github.com/infinyon/fluvio", rev = "v0.11.5", features = ["derive"]}
 serde = { workspace = true }
 tokio = { workspace = true, default-features = false, features = ["time"] }
 tracing = "0.1"
