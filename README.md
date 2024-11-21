@@ -1,3 +1,5 @@
+# Moved
+to https://github.com/fluvio-community/connector-hello-source
 
 # Connector Hello Source Repository
 
